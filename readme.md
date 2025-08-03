@@ -49,7 +49,7 @@ npx sequelize-cli init
 
 ```
 
-and then configure the config/cocnfig.json
+and then configure the config/config.json
 
 and after that execute 
 
