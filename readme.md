@@ -69,21 +69,11 @@ npx sequelize db:migrate
 ```
 
 
-db design 
+ Flights & Search – Database Schema
 
-Here's a clean, **README-friendly** version of your database schema description. It's formatted for clarity and collaboration across engineering teams:
+Tables & Fields
 
----
-
-## ✈️ Flights & Search – Database Schema
-
-This schema supports a flight booking system with core entities: **Airplanes**, **Flights**, **Airports**, and **Cities**.
-
----
-
-### **Tables & Fields**
-
-#### **1. Airplane Table**
+1. Airplane Table
 
 Stores airplane information.
 
@@ -163,6 +153,3 @@ Stores city data.
   Flights store city IDs for faster access (denormalized)
   → referenced by `src_city_id`, `des_city_id`
 
----
-
-Let me know if you'd like this turned into markdown or want Sequelize model templates for it.
