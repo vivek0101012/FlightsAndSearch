@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.listen(PORT,()=>{
     console.log(`server started at ${PORT}`)
+    logger.info("hellow this is the work j")
 })
 
 
