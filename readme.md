@@ -87,7 +87,7 @@ Stores airplane information.
 
 ---
 
-#### **2. Flight Table**
+2. Flight Table
 
 Stores details of individual flights.
 
@@ -107,7 +107,7 @@ Stores details of individual flights.
 
 ---
 
-#### **3. Airport Table**
+3. Airport Table
 
 Stores information about airports.
 
@@ -122,7 +122,7 @@ Stores information about airports.
 
 ---
 
-#### **4. City Table**
+4. City Table
 
 Stores city data.
 
@@ -135,21 +135,22 @@ Stores city data.
 
 ---
 
-### **Entity Relationships**
 
-* **Airplane ↔ Flights**:
+Entity Relationships
+
+Airplane ↔ Flights:
   One airplane can operate multiple flights
   → `1 : N`
 
-* **Airport ↔ Flights**:
+Airport ↔ Flights:
   One airport can be the origin or destination of many flights
   → `1 : N`
 
-* **City ↔ Airports**:
+City ↔ Airports:
   A city can have multiple airports
   → `1 : N`
 
-* **Flight ↔ City**:
+Flight ↔ City:
   Flights store city IDs for faster access (denormalized)
   → referenced by `src_city_id`, `des_city_id`
 
