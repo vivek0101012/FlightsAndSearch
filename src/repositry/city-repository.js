@@ -1,5 +1,5 @@
 
-const { where } = require("sequelize");
+
 const {City}=require("../models/index");
 
 class CityRepository {
@@ -24,7 +24,7 @@ async deleteCity (cityId) {
 
 try {
     
-    cit
+    
 
      await  City.destroy({
         where:{
