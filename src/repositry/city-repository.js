@@ -6,11 +6,11 @@ const {City}=require("../models/index");
 class CityRepository {
 
 
-     async createCity({name}){
+     async createCity({names}){
         
         try{
           const city=await City.create({
-            name
+            names
         });
  
         return city;

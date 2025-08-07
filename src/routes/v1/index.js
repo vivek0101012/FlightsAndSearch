@@ -6,13 +6,14 @@ const router= express.Router();
 
 
 
-router.post("" ,cityController.create());
+router.post("/city" ,cityController.create);
 
-router.delete("" ,cityController.destroy());
+router.delete("/city/:id" ,cityController.destroy);
 
-router.get("/" ,cityController.get());
+router.get("/city/:id" ,cityController.get);
 
-router.patch("" ,cityController.update());
+router.patch("/city/:id" ,cityController.update);
 
 
-module.exports={router}
+module.exports=router
+

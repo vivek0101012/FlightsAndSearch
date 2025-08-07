@@ -5,7 +5,7 @@ const CityService =new CityServiceClass();
 const create = async (req,res)=>{
 try {
     const city=await CityService.createCity(req.body);
-    return res.status(401).json({
+    return res.status(200).json({
 
      data:city,
      success:true,
@@ -63,7 +63,7 @@ try {
 const get =async  (req,res)=>{
 try {
         const city=await CityService.getCity(req.params.id);
-    return res.status(401).json({
+    return res.status(200).json({
 
      data:city,
      success:true,
