@@ -1,6 +1,6 @@
-const CityService = require("../services/city-service");
+const CityServiceClass = require("../services/city-service");
 
-const CityService =new CityService();
+const CityService =new CityServiceClass();
 
 const create = async (req,res)=>{
 try {
@@ -97,7 +97,7 @@ const update =async  (req,res)=>{
     try {
    
 
-              const city=await CityService.getCity(req.params.id,req.body);
+              const city=await CityService.updateCity(req.params.id,req.body);
     return res.status(401).json({
 
      data:city,
