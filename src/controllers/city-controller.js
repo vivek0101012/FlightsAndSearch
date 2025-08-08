@@ -128,12 +128,15 @@ const getAll =async  (req,res)=>{
     try {
    
 
-              const cities=await CityService.getAllCities();
+              const cities=await CityService.getAllCities(req.query);
+
+
+          
     return res.status(200).json({
 
      data:cities,
      success:true,
-     message:"successfully updated the changes  in city ",
+     message:"successfully fetched all the cities ",
      err:{}
 
     })
