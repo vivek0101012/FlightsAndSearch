@@ -148,6 +148,7 @@ Airport ↔ Flights:
 
 City ↔ Airports:
   A city can have multiple airports
+  A airport belongs to a city 
   → `1 : N`
 
 Flight ↔ City:

@@ -131,6 +131,18 @@ const getAll =async  (req,res)=>{
               const cities=await CityService.getAllCities(req.query);
 
 
+       if(cities.length===0){
+        return res.status(200).json({
+
+     data:"no such city exist",
+     success:true,
+     message:"no such city exist ",
+     err:{}
+
+    })
+       }
+
+
           
     return res.status(200).json({
 
