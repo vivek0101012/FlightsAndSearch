@@ -29,6 +29,35 @@ try {
 
 }
 
+const createCities = async (req,res)=>{
+try {
+    const cities=await CityService.createCities(req.body);
+    return res.status(200).json({
+
+     data:cities,
+     success:true,
+     message:"successfully created the cities",
+     err:{}
+
+    })
+
+} catch (error) {
+    
+    console.log(error)
+
+    return res.status(500).json({
+        data:{},
+        message:"failed to create",
+        success:false,
+        err:error
+    })
+}
+
+
+}
+
+
+
 
 const destroy= async (req,res)=>{
 try {
@@ -171,12 +200,52 @@ const getAll =async  (req,res)=>{
 
 
 
+const getAllAirports=async (req,res)=>{
+
+    try {
+        
+    const airports=await CityService.getAllAirports(req.params.id);
+    
+           
+    return res.status(200).json({
+
+     data:airports,
+     success:true,
+     message:"successfully fetched all the airports of this city ",
+     err:{}
+
+    })
+
+
+
+    } catch (error) {
+
+     console.log(error)
+    return res.status(500).json({
+        data:{},
+        message:"failed to fetch all the airports",
+        success:false,
+        err:error
+    })
+
+        
+    }
+
+
+    
+}
+
+
+
+
 
 module.exports={
 
     create,
+    createCities,
     update,
     get,
     destroy,
-    getAll
+    getAll,
+    getAllAirports
 }

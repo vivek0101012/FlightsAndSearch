@@ -2,6 +2,8 @@
 
 const { Op, CITEXT } = require("sequelize");
 const {City}=require("../models/index");
+const CityService = require("../services/city-service");
+const { IGNORE } = require("sequelize/lib/index-hints");
 
 class CityRepository {
 
@@ -127,6 +129,69 @@ class CityRepository {
         }
 
      }
+
+    
+     async getAllAirport(cityId){
+
+        try {
+            
+            const city= await City.findByPk(cityId);
+            
+            
+            const  airports= await city.getAirports();
+
+            return airports;
+
+
+
+        } catch (error) {
+
+             console.log("something went wrong in the repo layer ")
+              throw {error}
+            
+            
+        }
+
+
+     }
+
+     async createCities(data) {
+
+    try {
+        const cities=await City.bulkCreate(
+            data,
+            {
+                ignoreDuplicates:true
+            }
+        );
+        return cities
+        
+
+    } 
+    catch (error) {
+
+        console.log("some error at repo layer ")
+        throw(error)
+        
+    }
+
+  
+ 
+
+    
+
+
+        
+     }
+
+
+
+
+
+
+
+
+
 
 }
 
