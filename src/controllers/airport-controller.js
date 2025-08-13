@@ -1,12 +1,15 @@
-const AirportServicecClass=require("../services/airport-service")
+const {AirportService }=require("../services/index")
 
-const AirportService=new AirportServicecClass();
+const AirportServicecClass=new AirportService();
 
 const create=async (req,res)=>{
 
     try {
 
-        const airport=await AirportService.createAirport(req.body);
+
+        
+
+        const airport=await AirportServicecClass.createAirport(req.body);
          return res.status(200).json({
 
          data:airport,
@@ -36,7 +39,7 @@ const create=async (req,res)=>{
 
     try {
 
-        const result=await AirportService.deleteAirport(req.params.id);
+        const result=await AirportServicecClass.deleteAirport(req.params.id);
          return res.status(200).json({
 
          data:result,
@@ -69,7 +72,7 @@ const get=async (req,res)=>{
 
     try {
 
-        const airport=await AirportService.getAirport(req.params.id);
+        const airport=await AirportServicecClass.getAirport(req.params.id);
          return res.status(200).json({
 
          data:airport,
@@ -103,7 +106,7 @@ const update=async (req,res)=>{
 
     try {
 
-        const result=await AirportService.updateAirport(req.body,req.params.id);
+        const result=await AirportServicecClass.updateAirport(req.body,req.params.id);
          return res.status(200).json({
 
          data:result,

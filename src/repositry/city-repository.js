@@ -1,9 +1,6 @@
 
 
-const { Op, CITEXT } = require("sequelize");
 const {City}=require("../models/index");
-const CityService = require("../services/city-service");
-const { IGNORE } = require("sequelize/lib/index-hints");
 
 class CityRepository {
 

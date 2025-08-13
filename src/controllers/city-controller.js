@@ -1,16 +1,18 @@
-const CityServiceClass = require("../services/city-service");
+const{ CityService }= require("../services/index");
 
-const CityService =new CityServiceClass();
+
+const cityService=new CityService();
 
 const create = async (req,res)=>{
 try {
-    const city=await CityService.createCity(req.body);
+    const city=await cityService.createCity(req.body);
     return res.status(200).json({
 
      data:city,
      success:true,
      message:"successfully created a city ",
      err:{}
+     
 
     })
 
@@ -31,7 +33,7 @@ try {
 
 const createCities = async (req,res)=>{
 try {
-    const cities=await CityService.createCities(req.body);
+    const cities=await cityService.createCities(req.body);
     return res.status(200).json({
 
      data:cities,
@@ -62,7 +64,7 @@ try {
 const destroy= async (req,res)=>{
 try {
     
-     const result =await CityService.deleteCity(req.params.id);
+     const result =await cityService.deleteCity(req.params.id);
      return res.status(200).json({
             data:result,
         message:"succesfully deleted a city",
@@ -91,7 +93,7 @@ try {
 
 const get =async  (req,res)=>{
 try {
-        const city=await CityService.getCity(req.params.id);
+        const city=await cityService.getCity(req.params.id);
     return res.status(200).json({
 
      data:city,
@@ -126,7 +128,7 @@ const update =async  (req,res)=>{
     try {
    
 
-              const city=await CityService.updateCity(req.params.id,req.body);
+              const city=await cityService.updateCity(req.params.id,req.body);
     return res.status(401).json({
 
      data:city,
@@ -157,7 +159,7 @@ const getAll =async  (req,res)=>{
     try {
    
 
-              const cities=await CityService.getAllCities(req.query);
+              const cities=await cityService.getAllCities(req.query);
 
 
        if(cities.length===0){
@@ -204,7 +206,7 @@ const getAllAirports=async (req,res)=>{
 
     try {
         
-    const airports=await CityService.getAllAirports(req.params.id);
+    const airports=await cityService.getAllAirports(req.params.id);
     
            
     return res.status(200).json({

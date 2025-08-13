@@ -1,4 +1,4 @@
-const {CityRepository}=require("../repositry/index")
+const{CityRepository}=require("../repositry/index")
 
 class CityService {
 

@@ -6,14 +6,11 @@ class AirportRepository{
 
 
 
-    async createAirport({name,cityId}){
+    async createAirport(data){
 
     
         try {
-            const airport=await Airport.create({
-                name,
-                cityId
-            }) ;
+            const airport=await Airport.create(data) ;
              
              return airport;
             
