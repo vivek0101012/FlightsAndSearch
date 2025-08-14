@@ -37,8 +37,9 @@ class FlightRepository{
 
     async createFlight(data){
            try {
+           
 
-            const flight=await Flight.create(data);
+                const flight=await Flight.create(data);
 
         return flight;
         } 

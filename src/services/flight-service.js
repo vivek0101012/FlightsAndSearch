@@ -15,7 +15,9 @@ class Flightservice {
                 throw{error:"departure > arrival: not allowed"}
             }
 
+
             const airplane=await this.airplaneRepository.getAirplane(data.airplaneId);
+
             
             const flight =await this.flightRepository.createFlight({...data,totalSeats:airplane.capacity})
 
