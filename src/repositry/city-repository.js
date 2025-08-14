@@ -25,6 +25,7 @@ class CityRepository extends CrudRepository {
                 
                 }
              )
+             
 
              
     return cities;
