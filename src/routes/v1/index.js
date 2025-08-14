@@ -35,6 +35,7 @@ router.patch("/airports/:id",airportController.update);
 
 router.get("/airports/:id",airportController.get)
 
+router.get("/airports",airportController.getAll);
 
 
 // flight routes;

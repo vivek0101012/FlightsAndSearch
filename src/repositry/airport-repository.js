@@ -2,109 +2,17 @@
 
 const {Airport}=require('../models/index')
 
-class AirportRepository{
+const CrudRepository=require("./crud-repository")
 
 
-
-    async createAirport(data){
-
-    
-        try {
-            const airport=await Airport.create(data) ;
-             
-             return airport;
-            
-        } 
-        catch (error) {
-
-
-         
-            console.log("some error at repo layer in airport-repo")
-            throw(error)
-        }
-
-    }
-
-
-        async deleteAirport(airportId){
-
-    
-        try {
-           await Airport.destroy(
-             {
-                where:{
-                    id:airportId
-                }
-             }
-            ) ;
-             
-             return true;
-            
-        } 
-        catch (error) {
-
-            console.log("some error at repo layer in airport-repo")
-            throw(error)
-        }
-
-    }
-
-
-        async getAirport(airportId){
-
+class AirportRepository extends CrudRepository {
     
 
-        try {
-            const airport=await Airport.findByPk(airportId) ;
-             
-             return airport;
-            
-        } 
-        catch (error) {
-
-            console.log("some error at repo layer in airport-repo")
-            throw(error)
-        }
-
+    constructor (){
+        super(Airport)
     }
-
-
-
-        async updateAirport(data,airportId){
-
-    
-        try {
-            const airport=await Airport.update(data,{
-                where:{
-                    id:airportId
-                }
-            }) ;
-             
-             return airport;
-            
-        } 
-        catch (error) {
-
-            console.log("some error at repo layer in airport-repo")
-            throw(error)
-        }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
 
 
 module.exports=AirportRepository;

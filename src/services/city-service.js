@@ -1,23 +1,14 @@
 const{CityRepository}=require("../repositry/index")
-
-class CityService {
+const CrudService=require("./crud-service")
+class CityService extends CrudService {
 
     constructor (){
+                super(new CityRepository());
+
         this.CityRepository=new CityRepository();
     }
 
-    async createCity(data){
-
-        try {
-
-            const city=await this.CityRepository.createCity(data);
-            return city;
-            
-        } catch (error) {
-            throw(error)
-            console.log("something went wrong at the service  layer  ")
-        }
-    }
+ 
     
 
 
@@ -39,50 +30,11 @@ class CityService {
     }
     
 
-    async deleteCity(cityId){
 
-        try {
-            const response =await this.CityRepository.deleteCity(cityId);
-            return response;
-            
-        } catch (error) {
-                        throw(error)
-
-            console.log("something went wrong at the service  layer  ")
-        }
-    }
 
     
-    async updateCity(cityId,data){
 
-        try {
-            const city=await this.CityRepository.updateCity(cityId,data);
-            return city;
-            
-        } catch (error) {
-                        throw(error)
 
-            console.log("something went wrong at the service  layer  ")
-        }
-    }
-
-    
-    async getCity(cityId){
-
-        try {
-
-            const city= await this.CityRepository.getCity(cityId);
-            return city;
-            
-        } 
-        catch (error) {
-
-                        console.log("something went wrong at the service  layer  ")
-
-                        throw(error)
-
-        }
-    }
 
 
 async getAllCities(filter){
@@ -129,5 +81,7 @@ async getAllAirports(cityId){
 
 
 }
+
+
 
 module.exports=CityService;

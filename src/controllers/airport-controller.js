@@ -1,6 +1,6 @@
 const {AirportService }=require("../services/index")
 
-const AirportServicecClass=new AirportService();
+const airportService=new AirportService();
 
 const create=async (req,res)=>{
 
@@ -9,7 +9,7 @@ const create=async (req,res)=>{
 
         
 
-        const airport=await AirportServicecClass.createAirport(req.body);
+        const airport=await airportService.create(req.body);
          return res.status(200).json({
 
          data:airport,
@@ -39,7 +39,7 @@ const create=async (req,res)=>{
 
     try {
 
-        const result=await AirportServicecClass.deleteAirport(req.params.id);
+        const result=await airportService.destroy(req.params.id);
          return res.status(200).json({
 
          data:result,
@@ -72,7 +72,7 @@ const get=async (req,res)=>{
 
     try {
 
-        const airport=await AirportServicecClass.getAirport(req.params.id);
+        const airport=await airportService.get(req.params.id);
          return res.status(200).json({
 
          data:airport,
@@ -98,6 +98,38 @@ const get=async (req,res)=>{
 
 }
 
+const getAll=async (req,res)=>{
+
+    try {
+
+        const airport=await airportService.getAll();
+         return res.status(200).json({
+
+         data:airport,
+         success:true,
+         message:"successfully fetched the airport",
+         err:{}
+
+        })
+
+        
+        
+    } catch (error) {
+
+    
+        return res.status(500).json({
+
+         data:{},
+         success:false,
+         message:"failed to fetch the airport ",
+         err:error
+
+        })
+        
+    }
+
+}
+
 
 
 
@@ -106,7 +138,7 @@ const update=async (req,res)=>{
 
     try {
 
-        const result=await AirportServicecClass.updateAirport(req.body,req.params.id);
+        const result=await airportService.update(req.body,req.params.id);
          return res.status(200).json({
 
          data:result,
@@ -141,5 +173,6 @@ const update=async (req,res)=>{
         create,
         destroy,
         get,
-        update
+        update,
+        getAll
     }
