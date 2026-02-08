@@ -155,3 +155,26 @@ Flight ↔ City:
   Flights store city IDs for faster access (denormalized)
   → referenced by `src_city_id`, `des_city_id`
 
+## Frontend (React) in `frontend/`
+
+A React frontend has been added at the repository root in the `frontend` folder.
+
+### Run locally
+
+```bash
+cd frontend
+python3 -m http.server 4173
+```
+
+Then open `http://localhost:4173`.
+
+To point to a deployed backend, set `window.FLIGHTS_API_BASE_URL` before loading `app.jsx` (or edit the default in `frontend/app.jsx`).
+
+### Deploy on Vercel
+
+1. Push this repository to GitHub.
+2. In Vercel, import the repository.
+3. Set **Root Directory** to `frontend`.
+4. No build command is required (static deployment).
+
+The included `frontend/vercel.json` keeps clean static routing.
